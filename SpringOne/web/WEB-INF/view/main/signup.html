@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html layout:decorator="layout/default">
+    <head>
+        <title>Sign Up</title>
+    </head>
+    <body>
+        <div layout:fragment="content">
+            <form id="signupForm" class="inputForm" th:object="${form}" th:action="@{/signup}" method="POST">
+                <h3 class="head">Sign Up</h3>
+                <div class="part left">Username</div>
+                <div class="part right" th:classappend="${#fields.hasErrors('userName')}? 'error'">
+                    <input type="text" th:field="*{userName}" />
+                    <p th:errors="*{userName}">error</p>
+                </div>
+                <div class="part left">First Name</div>
+                <div class="part right" th:classappend="${#fields.hasErrors('firstName')}? 'error'">
+                    <input type="text" th:field="*{firstName}" />
+                    <p th:errors="*{firstName}">error</p>
+                </div>
+                <div class="part left">Last Name</div>
+                <div class="part right" th:classappend="${#fields.hasErrors('lastName')}? 'error'">
+                    <input type="text" th:field="*{lastName}" />
+                    <p th:errors="*{lastName}">error</p>
+                </div>
+                <div class="part left">Email</div>
+                <div class="part right" th:classappend="${#fields.hasErrors('email')}? 'error'">
+                    <input type="text" th:field="*{email}" />
+                    <p th:errors="*{email}">error</p>
+                </div>
+                <div class="part left">Password</div>
+                <div class="part right" th:classappend="${#fields.hasErrors('password')}? 'error'">
+                    <input type="password" th:field="*{password}" />
+                    <p th:errors="*{password}">error</p>
+                </div>
+                <div class="part left">Retype Password</div>
+                <div class="part right" th:classappend="${#fields.hasErrors('password2')}? 'error'">
+                    <input type="password" th:field="*{password2}" />
+                    <p th:errors="*{password2}">error</p>
+                </div>
+                <div class="part left"></div>
+                <div class="part right" th:classappend="${#fields.hasErrors('accept')}? 'error'">
+                    <label><input type="checkbox" th:field="*{accept}" /> I accept the terms and conditions.</label>
+                    <p th:errors="*{accept}">error</p>
+                </div>
+                <div class="full clear"><input type="submit" value="Sign Up" /></div>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title layout:title-pattern="$DECORATOR_TITLE - $CONTENT_TITLE">Spring Web</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" href="../../../css/styles.css" th:href="@{/css/styles.css}" />
+    </head>
+    <body>
+        <div id="wrapper">
+            <header>
+                <h1>Spring Web: Header</h1>
+                <div class="links" sec:authorize="authenticated">
+                    Welcome <span class="user" sec:authentication="name">username</span>
+                    | <a href="#" th:href="@{/logout}">Logout</a>
+                </div>
+                <div class="links" sec:authorize="!authenticated">
+                    <a href="#" th:href="@{/login}">Login</a>
+                    | <a href="#" th:href="@{/signup}">Sign Up</a>
+                </div>
+                <div class="clearfix" />
+            </header>
+            <div id="content" layout:fragment="content">Content goes here.</div>
+            <footer>Spring Web: Footer</footer>
+        </div>
+    </body>
+</html>

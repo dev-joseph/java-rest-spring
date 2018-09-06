@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html layout:decorator="layout/default">
+    <head><title>Profile</title></head>
+    <body>
+        <div layout:fragment="content">
+            <div class="profile">
+                <div class="heading">
+                    <h2 th:text="${user.userName}">username</h2>
+                    <a href="#" th:href="@{/user/edit}" th:if="${#authentication.principal.userId == user.userId}">Edit</a>
+                    <div class="clearfix" />
+                </div>
+                <div class="left">First Name:</div>
+                <div class="right" th:text="${user.firstName}">first-name</div>
+                <div class="left">Last Name:</div>
+                <div class="right" th:text="${user.lastName}">last-name</div>
+                <div class="left">Email:</div>
+                <div class="right" th:text="${user.email}">email</div>
+                <div class="clearfix" />
+            </div>
+        </div>
+    </body>
+</html>

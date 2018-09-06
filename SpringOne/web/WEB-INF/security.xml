@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:sec="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+          http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+    <sec:http pattern="^\/(image|css|js)\/.*" request-matcher="regex" security="none" />
+
+    <bean class="com.springone.security.RememberMeParameterBeanPostProcessor"
+          p:rememberMeParameter="rememberme" />
+
+    <sec:http use-expressions="true">
+        <sec:intercept-url pattern="/" access="permitAll" />
+        <sec:intercept-url pattern="/error/**" access="permitAll" />
+        <sec:intercept-url pattern="/login" access="permitAll" />
+        <sec:intercept-url pattern="/signup" access="permitAll" />
+        <sec:intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
+        <sec:form-login password-parameter="password"
+                        username-parameter="username"
+                        login-page="/login"
+                        login-processing-url="/checkerLogin"
+                        authentication-failure-url="/login?error"
+                        default-target-url="/user/home" />
+        <sec:logout logout-url="/logout" />
+        <sec:remember-me key="e45338436b" />
+        <sec:anonymous username="@anonymous" />
+    </sec:http>
+
+    <bean id="daoUserDetailsService" class="com.springone.security.DaoUserDetailsService" />
+
+    <bean id="standardPasswordEncoder"
+          class="org.springframework.security.crypto.password.StandardPasswordEncoder" />
+
+    <sec:authentication-manager>
+        <sec:authentication-provider user-service-ref="daoUserDetailsService">
+            <sec:password-encoder ref="standardPasswordEncoder" />
+        </sec:authentication-provider>
+    </sec:authentication-manager>
+
+</beans>

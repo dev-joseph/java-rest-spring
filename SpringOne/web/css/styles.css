@@ -1,0 +1,353 @@
+/* 
+    Document   : styles
+    Created on : May 22, 2013, 4:30:18 PM
+    Author     : nirmal
+    Description: CSS Styles
+*/
+
+html { 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.875em;
+    background-color: #f0f0f0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body * {
+    margin: 0;
+    padding: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+.clearfix {
+    margin: 0;
+    padding: 0;
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.error {
+    color: #c00000;
+}
+
+a:link, a:visited {
+    color: #000060;
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    color: #660033;
+    text-decoration: underline;
+}
+
+p {
+    padding: 3px;
+}
+
+button, input[type=button], input[type=submit] {
+    padding: 5px 8px;
+    border: 1px solid #303030;
+    border-radius: 5px;
+    background-color: #a0a0a0;
+    color: #101010;
+    font-size: 1em;
+    font-weight: bold;
+    text-shadow: 0 1px #e0e0e0;
+    cursor: pointer;
+    height: 31px;
+    box-shadow: 1px 1px 3px #c0c0c0;
+    outline: none;
+}
+
+button:focus, input[type=button]:focus, input[type=submit]:focus {
+    border: 1px solid #6090c0;
+    box-shadow: 1px 1px 3px #90c0ff;
+    text-shadow: 0 1px #e0e0e0;
+}
+
+button:hover, input[type=button]:hover, input[type=submit]:hover {
+    color: #ffffff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 1px 1px 3px #c0c0c0;
+    text-shadow: 0 1px #303030;
+}
+
+button:active, input[type=button]:active, input[type=submit]:active {
+    color: #f0f0f0;
+    background-color: #606060;
+    border: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+input[type=text], input[type=password] {
+    padding: 2px;
+    border: 1px solid #909090;
+    border-radius: 3px;
+    background-color: #ffffff;
+    color: #101010;
+    font-size: 1em;
+    height: 21px;
+    box-shadow: 0px 0px 3px #909090;
+    outline: none;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    border-color: #90c0ff;
+    box-shadow: 0px 0px 3px #90c0ff;
+}
+
+#wrapper {
+    position: relative;
+    margin: 0 auto;
+    width: 900px;
+    min-height: 100%;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px #303030;
+}
+
+#content {
+    padding: 5px 5px 45px 5px;
+}
+
+header {
+    padding: 10px;
+    margin-bottom: 5px;
+    height: 40px;
+    background-color: #c0c0c0;
+    color: #333333;
+    text-shadow: 0px 1px #f0f0f0;
+    border-bottom: 1px solid #909090;
+}
+
+header h1 {
+    float: left;
+}
+
+header a:link, a:visited {
+    text-decoration: none;
+}
+
+header a:hover, a:active {
+    text-decoration: none;
+}
+
+header span.user {
+    color: #000090;
+}
+
+header .links {
+    float: right;
+    font-weight: bold;
+    line-height: 14px;
+    height: 14px;
+    padding-top: 26px;
+}
+
+footer {
+    position: absolute;
+    padding: 5px 0;
+    bottom: 0;
+    width: 100%;
+    height: 29px;
+    font-size: .8em;
+    line-height: 29px;
+    text-align: center;
+    color: #333333;
+    background-color: #c0c0c0;
+    border-top: 1px solid #909090;
+}
+
+/* BEGIN: Common styles for input forms */
+form.inputForm {
+    display: block;
+    padding: 10px 15px;
+    border: 1px solid #c0c0c0;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px #303030;
+}
+
+form.inputForm div {
+    padding: 3px 0;
+    height: 30px;
+    line-height: 30px;
+}
+
+form.inputForm div.error {
+    height: auto;
+}
+
+form.inputForm div.error p {
+    padding: 0 0 0 5px;
+    font-size: 0.786em;
+    line-height: 1.1em;
+}
+
+form.inputForm div.error label {
+    color: #000000;
+}
+
+form.inputForm .head {
+    margin: -11px -16px 10px -16px;
+    padding: 8px 10px;
+    background-color: #c0c0c0;
+    border-radius: 10px 10px 0 0;
+    text-shadow: 0px 1px #f0f0f0;
+    color: #333333;
+}
+
+form.inputForm .full {
+    text-align: center;
+    height: auto;
+}
+
+form.inputForm .part {
+    float: left;
+}
+/* END: Common styles for input forms */
+
+/* BEGIN: Login Page */
+#loginForm {
+    margin: 100px auto;
+    width: 350px;
+}
+
+#loginForm .left {
+    width: 100px;
+}
+
+#loginForm .right {
+    width: 250px;
+}
+
+#loginForm input[type=text], #loginForm input[type=password] {
+    width: 240px;
+}
+/* END: Login Page */
+
+/* BEGIN: Signup Page */
+#signupForm {
+    margin: 50px auto;
+    width: 500px;
+}
+
+#signupForm .left {
+    width: 150px;
+}
+
+#signupForm .right {
+    width: 350px;
+}
+
+#signupForm input[type=text], #signupForm input[type=password] {
+    width: 240px;
+}
+/* END: Signup Page */
+
+/* BEGIN: User Home Page */
+div.users {
+    margin-top: 10px;
+    border-top: 1px dotted #999999;
+}
+
+div.users h2 {
+    padding: 10px 0;
+}
+
+div.users div.user {
+    float: left;
+    margin: 0 5px 10px 5px;
+    padding: 5px;
+    width: 421px;
+    height: 100px;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px #606060;
+}
+
+div.users div.current {
+    border-color: #c0c0e0;
+    background-color: #f6f6ff;
+}
+
+div.users div.user p:first-child {
+    font-weight: bold;
+    font-size: 1.143em;
+    background-color: #c0c0c0;
+    border-radius: 5px 5px 0 0;
+    margin: -6px -6px 0 -6px;
+    padding: 4px 5px;
+}
+
+div.users div.current p:first-child {
+    background-color: #c0c0e0;
+}
+
+div.users div.pager {
+    clear: both;
+    padding: 5px;
+    background-color: #e0e0e0;
+    text-align: right;
+    border-radius: 5px;
+}
+
+div.users div.pager span {
+    color: #909090;
+}
+
+div.users div.pager span.current {
+    color: #666666;
+    font-weight: bold;
+}
+/* END: User Home Page */
+
+/* BEGIN: User Profile Page */
+div.profile {
+    margin: 20px auto;
+    width: 400px;
+    border: 1px solid #c0c0c0;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px #606060;
+    padding-bottom: 10px;
+}
+
+div.profile div.heading {
+    padding: 7px 10px;
+    background-color: #c0c0c0;
+    border-radius: 10px 10px 0 0;
+    margin: -1px -1px 10px -1px;
+}
+
+div.profile div.heading h2 {
+    float: left;
+}
+
+div.profile div.heading a {
+    display: block;
+    float: right;
+    line-height: 25px;
+}
+
+div.profile div.left {
+    float: left;
+    width: 140px;
+    text-align: right;
+    padding: 5px;
+}
+
+div.profile div.right {
+    float: left;
+    width: 240px;
+    padding: 5px;
+}
+/* END: User Profile Page */
