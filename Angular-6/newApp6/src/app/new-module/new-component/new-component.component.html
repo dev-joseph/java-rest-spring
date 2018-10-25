@@ -1,0 +1,14 @@
+<div style="text-align:left;">
+  <p>
+    Username : <input type="text" [(ngModel)]="userName">
+    <button (click)="search()">Get Git Data</button>
+  </p>
+  <div *ngIf="response">
+    <p>Name : {{response?.name}}</p>
+    <p>Login name : {{response?.login}}</p>
+    <p><img src="{{response?.avatar_url}}" width="50" />  </p>
+    <p>Created at: {{response?.created_at}}</p>
+    <p>Followers: {{response?.followers}}</p>
+
+  </div>
+</div>

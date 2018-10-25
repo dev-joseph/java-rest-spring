@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context = "http://www.springframework.org/schema/context"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd" 
+   default-init-method="initCalled" default-destroy-method="destroyCalled">
+   
+   
+   
+   		<bean id="triangle" class="org.joseph.springstudy.Triangle">
+<!--    	<property name="type" value="Equilateral Triangle" /> -->
+<!-- 		<constructor-arg value="Equilateral Triangle From Contructor ARG" /> -->
+			<property name="pointA" ref="pointA" />
+			<property name="pointB">
+				<bean id="bPoint" class="org.joseph.springstudy.Point">
+		   			<property name="x" value="30" />
+		   			<property name="y" value="40" />
+		   		</bean>
+			</property>
+			
+			<property name="pointC">
+				<bean id="cPoint" class="org.joseph.springstudy.Point">
+		   			<property name="x" value="50" />
+		   			<property name="y" value="60" />
+		   		</bean>
+			</property>
+   		</bean>
+   		
+   		<bean id="pointA" class="org.joseph.springstudy.Point">
+   			<property name="x" value="${pointA.pointX}" />
+   			<property name="y" value="${pointA.pointY}" />
+   		</bean>
+   		
+   		<bean id="center" class="org.joseph.springstudy.Point">
+   			<property name="x" value="${pointA.pointX}" />
+   			<property name="y" value="${pointA.pointY}" />
+   		</bean>
+   		
+<!--    		<bean id="cirlce" class="org.joseph.springstudy.Circle"> -->
+   			
+<!--    		</bean> -->
+   		
+   		
+   		
+   		
+   		
+   		<bean id="saPoint" class="org.joseph.springstudy.Point">
+   			<property name="x" value="5" />
+   			<property name="y" value="10" />
+   		</bean>
+   		
+   		<bean id="sbPoint" class="org.joseph.springstudy.Point">
+   			<property name="x" value="15" />
+   			<property name="y" value="20" />
+   		</bean>
+   		
+   		<bean id="scPoint" class="org.joseph.springstudy.Point">
+   			<property name="x" value="25" />
+   			<property name="y" value="30" />
+   		</bean>
+   		
+   		<bean id="sdPoint" class="org.joseph.springstudy.Point">
+   			<property name="x" value="35" />
+   			<property name="y" value="40" />
+   		</bean>
+   		
+   		<bean id="square" class="org.joseph.springstudy.Square">
+   			<property name="points">
+   				<list>
+   					<ref bean="saPoint" />
+   					<ref bean="sbPoint" />
+   					<ref bean="scPoint" />
+   					<ref bean="sdPoint" />
+   				</list>
+   			</property>
+   		</bean>
+   		
+<!--    		<bean class="org.joseph.springstudy.DisplayBeanPostProcessor" /> -->
+<!-- 		<bean class="org.joseph.springstudy.MyBeanFactoryPostProcessor" /> -->
+
+		<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
+			<property name="location" value="pointconfig.properties"></property>
+		</bean>
+		
+		<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+			<property name="basenames">
+				<list>
+					<value>messages</value>
+				</list>
+			</property>
+		</bean>
+   		
+   		<context:annotation-config/>
+   		
+   		<context:component-scan base-package="org.joseph.springstudy">
+   		</context:component-scan>
+   		
+   		
+   		
+   </beans>
