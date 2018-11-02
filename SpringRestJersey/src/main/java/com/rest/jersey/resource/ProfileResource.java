@@ -12,7 +12,10 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.rest.jersey.model.Profile;
+import com.rest.jersey.secure.Secured;
 import com.rest.jersey.service.ProfileService;
 
 @Path("/profiles")
@@ -20,7 +23,8 @@ import com.rest.jersey.service.ProfileService;
 @Produces(MediaType.APPLICATION_JSON)
 public class ProfileResource {
 	
-	private ProfileService profileService = new ProfileService();
+	@Autowired
+	private ProfileService profileService;
 
 	@GET
 	public List<Profile> getProfiles() {
@@ -38,6 +42,16 @@ public class ProfileResource {
 	public Profile getProfile(@PathParam("profileName") String profileName) {
 		return profileService.getProfile(profileName);
 	}
+	
+	
+	@GET
+	@Secured
+	@Path("/secured/{profileName}")
+	public Profile getSecuredProfile(@PathParam("profileName") String profileName) {
+		return profileService.getSecuredProfile(profileName);
+	}
+	
+	
 
 	@PUT
 	@Path("/{profileName}")

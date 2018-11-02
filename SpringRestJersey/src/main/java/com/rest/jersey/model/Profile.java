@@ -12,15 +12,26 @@ public class Profile {
     private String lastName;
     private Date created;
     
-    public Profile() {
+    private String token;
+    
+    public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	public Profile() {
     	
     }
     
-	public Profile(long id, String profileName, String firstName, String lastName) {
+	public Profile(long id, String profileName, String firstName, String lastName,String token) {
 		this.id = id;
 		this.profileName = profileName;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.token = token;
 	}
 
 	public long getId() {

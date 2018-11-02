@@ -4,14 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Component;
+
 import com.rest.jersey.demodb.DatabaseClass;
 import com.rest.jersey.model.Profile;
 
+@Component
 public class ProfileService {
 	private Map<String, Profile> profiles = DatabaseClass.getProfiles();
 	
 	public ProfileService() {
-		profiles.put("koushik", new Profile(1L, "koushik", "Koushik", "Kothagal"));
+		profiles.put("koushik", new Profile(1L, "koushik", "Koushik", "Kothagal","TOKENKAOUSHIK"));
+		profiles.put("joseph", new Profile(2L, "josephjohn", "Joseph", "John","TOKENJOSEPH"));
+		
 	}
 	
 	public List<Profile> getAllProfiles() {
@@ -19,6 +24,10 @@ public class ProfileService {
 	}
 	
 	public Profile getProfile(String profileName) {
+		return profiles.get(profileName);
+	}
+	
+	public Profile getSecuredProfile(String profileName) {
 		return profiles.get(profileName);
 	}
 	
